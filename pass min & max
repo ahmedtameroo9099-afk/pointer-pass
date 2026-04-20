@@ -1,0 +1,30 @@
+#include <stdio.h>
+typedef const int arrayValue;
+typedef int counter;
+void search(int array[],arrayValue n,int *ptrMin,int *ptrMax)
+{
+    *ptrMin =array[0];
+    *ptrMax =array[0];
+    for (counter i = 1;i<n;i++)
+    {
+        if (*ptrMin > array[i])
+        {*ptrMin = array[i];}
+        if (*ptrMax < array[i])
+        {*ptrMax = array[i];}
+    }
+}
+int main()
+{
+    arrayValue num;
+    printf("enter the number (below 6) : ");
+    scanf("%d",&num);
+    int arr[num];
+    for (counter i =0;i<num;i++)
+    {
+        printf("enter number [%d] : ",i+1);
+        scanf("%d",&arr[i]);
+    }
+    int min,max;
+    search(arr,num,&min,&max);
+    printf("min : %d\nmax : %d",min,max);
+}
